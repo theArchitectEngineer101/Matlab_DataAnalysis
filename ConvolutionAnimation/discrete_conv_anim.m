@@ -1,4 +1,35 @@
 function conv_vector = discrete_conv_anim(x_entry_signal, h_impulse_response)
+%DISCRETE_CONV_ANIM Generates an animation of the discrete convolution process.
+%   This function calculates the convolution between two discrete signals
+%   and plots a step-by-step, frame-by-frame animation showing the sliding 
+%   of the flipped impulse response, the multiplication, and the summation 
+%   that constitute the convolution operation.
+%
+%   Syntax:
+%       y = discrete_conv_anim(x, h)
+%
+%   Inputs:
+%       x_entry_signal     - A 1xN row vector representing the discrete 
+%                            input signal x[n].
+%       h_impulse_response - A 1xM row vector representing the discrete 
+%                            impulse response h[n].
+%
+%   Outputs:
+%       conv_vector        - A 1x(N+M-1) row vector containing the full 
+%                            result of the convolution y[n] = x[n] * h[n].
+%
+%   Example Usage:
+%       % Define a rectangular input signal and an impulse response
+%       input_x = [1, 1, 1, 1, 1];
+%       response_h = [0.5, 0.5];
+%
+%       % Generate the animation and store the result
+%       output_y = discrete_conv_anim(input_x, response_h);
+%
+%   See also: conv, stem, plot, circshift, drawnow
+%
+%   Author: theArchitectEngineer101
+%   Date: 03-Jul-2025
 
 conv_vector = conv(x_entry_signal, h_impulse_response);
 x_dim = length(x_entry_signal); h_dim = length(h_impulse_response);

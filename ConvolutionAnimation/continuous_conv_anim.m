@@ -1,4 +1,36 @@
 function conv_vector = continuous_conv_anim(x_entry_signal, h_impulse_response)
+%CONTINUOUS_CONV_ANIM Generates an animation of the continuous convolution process.
+%   This function calculates the convolution between two continuous-time 
+%   signals (represented as sampled vectors) and plots a step-by-step, 
+%   frame-by-frame animation. It visualizes the sliding of the flipped 
+%   impulse response, the point-wise multiplication, and the integration 
+%   (approximated by a summation) that constitute the convolution integral.
+%
+%   Syntax:
+%       y = continuous_conv_anim(x, h)
+%
+%   Inputs:
+%       x_entry_signal     - A 1xN row vector representing the sampled
+%                            continuous-time input signal x(t).
+%       h_impulse_response - A 1xM row vector representing the sampled
+%                            continuous-time impulse response h(t).
+%
+%   Outputs:
+%       conv_vector        - A 1x(N+M-1) row vector containing the full 
+%                            result of the convolution y(t) = x(t) * h(t).
+%
+%   Example Usage:
+%       % Define a rectangular pulse and an exponential impulse response
+%       input_x = ones(1, 20);
+%       response_h = exp(-0.2*(0:19));
+%
+%       % Generate the animation and store the result
+%       output_y = continuous_conv_anim(input_x, response_h);
+%
+%   See also: conv, plot, circshift, drawnow
+%
+%   Author: theArchitectEngineer101
+%   Date: 03-Jul-2025
 
 conv_vector = conv(x_entry_signal, h_impulse_response);
 x_dim = length(x_entry_signal); h_dim = length(h_impulse_response); step = 0.5;
